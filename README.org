@@ -1,10 +1,8 @@
 * Package bscm
 
-This package includes a single function to perform a statistical
-    interpolation using Bratseth Successive Correction Method.  It is designed
-    specifically for marine data, and it uses bottom depth to calculate the
-    similiarity among the interpolation points.
+This package includes a single function to perform a statistical interpolation using Bratseth's Successive Correction Method.  It is designed specifically for marine data, and it uses bottom depth to calculate the similiarity among the interpolation points.
 
+The code is adapted from a MatLab routine developed by Kjell Arne Mork.
 
 ** Installation
 To install the package, do the following
@@ -13,3 +11,11 @@ To install the package, do the following
 library(devtools)
 install_github("jmburgos/bscm")
 #+end_example
+
+** References
+
+Bratseth, A. M. (1986).  Statistical interpolation by means of succesive corrections.  Tellus A 38A(5), 439-447
+
+Mork, K. A., Ø. Skagseth, V. Ivshin, V. Ozhigin, S. L. Hughes, and H. Valdimarsson (2014), Advective and atmospheric forced changes in heat and fresh water content in the Norwegian Sea, 1951–2010, Geophys. Res. Lett., 41, 6221–6228, doi:10.1002/ 2014GL061038.
+
+Skagseth, Ø., and K. A. Mork (2012), Heat content in the Norwegian Sea, 1995–2010, ICES J. Mar. Sci., 69(5), 826–832.
