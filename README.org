@@ -1,0 +1,6 @@
+* Package bscm
+
+This package includes a single function to perform a statistical
+    interpolation using Bratseth Successive Correction Method.  It is designed
+    specifically for marine data, and it uses bottom depth to calculate the
+    similiarity among the interpolation points.
