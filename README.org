@@ -1,11 +1,12 @@
 * Package bscm
 
-This package includes a single function to perform a statistical interpolation using Bratseth's Successive Correction Method.  It is designed specifically for marine data, and it uses bottom depth to calculate the similiarity among the interpolation points.  The code is adapted from a MATLAB routine developed by Kjell Arne Mork.
+This package includes a single function, ~bscm~ to perform a statistical interpolation using Bratseth's Successive Correction Method.  It is designed specifically for marine data, and it uses bottom depth to calculate the similiarity among the interpolation points.  The code is adapted from a MATLAB routine developed by Kjell Arne Mork.
 
+The function ~bscm~ uses objective analysis with a Gaussian correlation function.  The effective distance =r= between the observation points and the nodes of the interpolation grid is defined based on the difference in bottom depths, as follows:
 
 [[./img/formula.png]]
 
-
+where =rx= and =ry= is the geographic distance in the zonal and meridional directions, and =Ha= and =Ho= are the bottom depths at the analysis and observation points, respectively (Skagseth and Mork, 2012).
 
 ** Installation
 To install the package, do the following
@@ -16,6 +17,9 @@ install_github("jmburgos/bscm")
 #+end_example
 
 ** Example
+
+The package includes two datasets.  =aragonite= is a data frame containing the near-bottom aragonite saturation state in 90 locations around Iceland.  =iceland_depth= is a named list with the analysis grid.
+
 
 #+begin_example
 library(bscm)

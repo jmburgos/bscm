@@ -21,7 +21,8 @@
 #' @param obserror numeric. The target observation error. Defaults to 0.05
 #' @param b numeric vector.  Defaults to seq(200, 100, -10)
 #' @param fb numeric matrix. Background field (not yet implemented)
-#'
+#' @param raster logic.  Export the results of the interpolation as rasters. If
+#'  FALSE, the output are matrices.
 #'
 #' @return Named list with the following elements:
 
@@ -43,7 +44,8 @@
 #' sum(1:10)
 
 bscm <- function(fo, xo, yo, dypobs = NULL, x, y, dypxy = NULL,
-                 radius = 300, obserror = 0.05, fb = NULL, b=NULL) {
+                 radius = 300, obserror = 0.05, fb = NULL, b=NULL,
+                 raster = TRUE) {
 
   ## Check input
 
@@ -194,6 +196,23 @@ bscm <- function(fo, xo, yo, dypobs = NULL, x, y, dypxy = NULL,
 
     f[k, ] <- fr[(1 + (k - 1) * nx):(k * nx)]
     E[k, ] <- er[(1 + (k - 1) * nx):(k * nx)]
+
+  }
+
+  ## Remove points on land
+  pl <- which(dypxy > 0 | is.na(dypxy))
+  f[pl] <- NA
+  E[pl] <- NA
+
+  if(raster) {
+
+    f <- raster(f, xmn = min(x), xmx = max(x),
+                 ymn = min(y), ymx = max(y),
+                 crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")
+
+    E <- raster(E, xmn = min(x), xmx = max(x),
+                 ymn = min(y), ymx = max(y),
+                 crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")
 
   }
 
