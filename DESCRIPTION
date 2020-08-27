@@ -1,0 +1,27 @@
+Package: bscm
+Title: Bratseth Successive Correction Method
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Julian M.",
+           family = "Burgos",
+           role = c("aut", "cre"),
+           email = "julian.burgos@hafogvatn.is"),
+	   person(given = "Kjell Arne",
+           family = "Mork",
+           role = c("aut"),
+           email = "kjell.arne.mork@hi.no"
+           ))
+Description: This package includes a single function to perform a statistical
+    interpolation using Bratseth Successive Correction Method.  It is designed
+    specifically for marine data, and it uses bottom depth to calculate the
+    similiarity among the interpolation points.
+Depends: R (>= 3.6.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: TRUE
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+    dplyr (>= 1.0.1),
+    MASS (>= 7.3.51.6),
+    tidyr (>= 1.1.1)
