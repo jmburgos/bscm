@@ -16,10 +16,11 @@
 #' @param y numeric vector with the latitude values of the interpolation grid.
 #' @param dypxy numeric matrix with the bottom depth at the nodes of the
 #'  interpolation grid.
-#' @param radius numeric,  . Defaults to 300m.
-#' @param obserror numeric. Defaults to 0.05
+#' @param radius numeric.  This is the topography parameter as described in
+#' Skagseth abd Mork (2012). Defaults to 300m.
+#' @param obserror numeric. The target observation error. Defaults to 0.05
 #' @param b numeric vector.  Defaults to seq(200, 100, -10)
-#' @param fb numeric matrix. Background field (NOT IMPLEMENTED)
+#' @param fb numeric matrix. Background field (not yet implemented)
 #'
 #'
 #' @return Named list with the following elements:
